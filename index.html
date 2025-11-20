@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خضروات وفواكهة اسواق تبارك</title>
+    <title>خضروات وفاكهة أسواق تبارك</title>
     
     <!-- تمت إضافة أيقونة الموقع (Favicon) -->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -33,6 +33,7 @@
             font-family: 'Cairo', sans-serif;
             background-color: var(--light-bg);
             color: var(--dark-text);
+            overflow-x: hidden; /* منع التمرير الأفقي */
         }
 
         /* Header & Navbar */
@@ -45,23 +46,24 @@
             font-weight: 900;
             color: var(--primary-color) !important;
             font-size: 1.5rem;
-            /* إضافة تنسيق للشعار إذا كان صورة */
             display: flex;
             align-items: center;
         }
         .navbar-brand img {
             margin-left: 10px;
-            height: 40px; /* يمكنك تعديل حجم الشعار من هنا */
+            height: 40px;
         }
         .search-bar {
             border-radius: 20px;
             padding-right: 20px;
             border: 1px solid #ddd;
+            margin-top: 10px; /* إضافة مسافة للأجهزة المحمولة */
         }
         .nav-link {
             font-weight: 700;
             color: var(--dark-text) !important;
             transition: color 0.3s;
+            padding: 0.5rem 1rem !important; /* زيادة مسافة النقر */
         }
         .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
@@ -69,21 +71,36 @@
         
         /* Hero Section */
         .hero-section {
-            /* تم التعديل هنا: إزالة الطبقة الملونة */
-            background: url('images/header-bg.jpg') center/100% auto no-repeat;
+            background: url('images/header-bg.jpg') center/cover no-repeat;
             color: white;
-            padding: 100px 0;
+            padding: 80px 0; /* تقليل الحشو للأجهزة المحمولة */
             text-align: center;
-            margin-bottom: 50px;
-            /* تم إضافة ارتفاع دنيمي لضمان ظهور الصورة */
-            min-height: 400px; 
+            margin-bottom: 30px;
+            min-height: 300px; /* تقليل الارتفاع للأجهزة المحمولة */
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        /* إضافة طبقة شبه شفافة لتحسين قابلية قراءة النص */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         .hero-section h1 {
             font-weight: 900;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2.5rem; /* تقليل حجم العنوان */
         }
 
         /* Section Headers */
@@ -106,6 +123,7 @@
         .section-header h2 {
             font-weight: 700;
             color: var(--primary-color);
+            font-size: 1.8rem; /* تقليل حجم العنوان */
         }
 
         /* Product Cards */
@@ -159,6 +177,7 @@
             font-weight: 700;
             transition: all 0.3s ease;
             transform: scale(1);
+            width: 100%; /* جعل الزر يملأ العرض */
         }
         .product-card:hover .add-to-cart-btn {
             background-color: #218838;
@@ -201,7 +220,6 @@
                 transform: translateY(0);
             }
         }
-
 
         /* Cart Modal */
         .cart-item {
@@ -305,22 +323,21 @@
             text-decoration: underline;
         }
 
-
         /* Floating Cart Button */
         .floating-cart-btn {
             position: fixed;
-            left: 30px;
-            bottom: 30px;
+            left: 20px;
+            bottom: 20px;
             z-index: 1000;
             background-color: var(--primary-color);
             color: white;
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
             transition: all 0.4s ease;
@@ -346,8 +363,8 @@
         /* Scroll to Top Button */
         #scrollToTopBtn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 99;
             border: none;
             outline: none;
@@ -378,17 +395,101 @@
         }
 
         /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .navbar-brand img {
+                height: 30px;
+            }
+            .hero-section {
+                padding: 60px 0;
+                min-height: 250px;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .section-header {
+                margin-bottom: 30px;
+            }
+            .section-header h2 {
+                font-size: 1.3rem;
+            }
+            .product-card .card-title {
+                font-size: 1rem;
+            }
+            .product-card .price {
+                font-size: 1.1rem;
+            }
+            .cart-item img {
+                width: 50px;
+                height: 50px;
+            }
             .floating-cart-btn {
                 left: 15px;
                 bottom: 15px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
             #scrollToTopBtn {
                 bottom: 15px;
                 right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 40px 0;
+                min-height: 200px;
+            }
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+            .section-header h2 {
+                font-size: 1.2rem;
+            }
+            .product-card .card-body {
+                padding: 15px;
+            }
+            .add-to-cart-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            .cart-item {
+                padding: 10px;
+            }
+            .cart-item-details {
+                font-size: 0.9rem;
+            }
+            .cart-total {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            .floating-cart-btn {
+                left: 10px;
+                bottom: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            #scrollToTopBtn {
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+            .contact-info p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -400,7 +501,7 @@
         <nav class="navbar navbar-expand-lg navbar-light sticky-top">
             <div class="container">
                 <!-- تم تفعيل شعار الصورة -->
-                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="خضروات وفواكهة اسواق تبارك"> خضروات وفواكهة اسواق تبارك</a>
+                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="خضروات وفاكهة أسواق تبارك"> خضروات وفاكهة أسواق تبارك</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -429,7 +530,10 @@
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
-            <!-- تم التعديل هنا: تم حذف النصوص التي كانت فوق الصورة -->
+            <div class="hero-content">
+                <h1>أجود الفواكه والخضروات الطازجة</h1>
+                <p class="lead">توصيل سريع ومنتجات عالية الجودة</p>
+            </div>
         </section>
 
         <!-- Offers Section -->
@@ -529,7 +633,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 متجر الخضروات والفواكهة أسواق تبارك. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 خضروات وفاكهة أسواق تبارك. جميع الحقوق محفوظة.</p>
             <p>صُمم بـ <i class="fas fa-heart text-danger"></i> لتقديم أفضل المنتجات</p>
             
             <!-- Contact Info Section -->
@@ -583,10 +687,10 @@
                 // Fruits
                 { id: 9, name: 'تفاح', price: 30, category: 'fruits', image: 'images/apple.jpg' },
                 { id: 10, name: 'برتقال', price: 22, category: 'fruits', image: 'images/orange.jpg' },
-                { id: 11, name: 'فراولة', price: 45, category: 'fruits', image: 'images/Strawberry.jpg' },
+                { id: 11, name: 'فراولة', price: 45, category: 'fruits', image: 'images/strawberry.jpg' },
                 { id: 12, name: 'عنب', price: 35, category: 'fruits', image: 'images/grapes.jpg' },
-                { id: 13, name: 'بطيخ', price: 20, category: 'fruits', image: 'images/Watermelon.jpg' },
-                { id: 14, name: 'مانجو', price: 40, category: 'fruits', image: 'images/Mango.jpg' },
+                { id: 13, name: 'بطيخ', price: 20, category: 'fruits', image: 'images/watermelon.jpg' },
+                { id: 14, name: 'مانجو', price: 40, category: 'fruits', image: 'images/mango.jpg' },
             ];
 
             let cart = [];
@@ -849,7 +953,7 @@
                     landmark: document.getElementById('landmark').value
                 };
 
-                let orderDetails = `*طلب جديد من الخضروات والفاكهة اسواق تبارك*\n\n`;
+                let orderDetails = `*طلب جديد من متجر خضروات وفاكهة أسواق تبارك*\n\n`;
                 orderDetails += `--- بيانات العميل ---\n`;
                 orderDetails += `الاسم: ${customerData.name}\n`;
                 orderDetails += `رقم الهاتف: ${customerData.phone}\n`;
@@ -905,10 +1009,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
