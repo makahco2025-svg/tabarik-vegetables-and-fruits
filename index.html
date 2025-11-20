@@ -53,12 +53,23 @@
             margin-left: 10px;
             height: 40px;
         }
-        .search-bar {
-            border-radius: 20px;
-            padding-right: 20px;
-            border: 1px solid #ddd;
-            margin-top: 10px; /* إضافة مسافة للأجهزة المحمولة */
+        
+        /* === التعديلات الجديدة === */
+        /* حاوية جديدة للأقسام والبحث */
+        .navbar-controls {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* تأخذ المساحة المتاحة */
+            justify-content: space-between; /* توزيع العناصر */
         }
+        
+        /* حاوية روابط الأقسام */
+        .navbar-categories {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* مسافة من الشعار */
+        }
+
         .nav-link {
             font-weight: 700;
             color: var(--dark-text) !important;
@@ -68,6 +79,14 @@
         .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
         }
+
+        .search-bar {
+            border-radius: 20px;
+            padding-right: 20px;
+            border: 1px solid #ddd;
+            max-width: 250px; /* تحديد أقصى عرض لشريط البحث */
+        }
+        /* === نهاية التعديلات الجديدة === */
         
         /* Hero Section */
         .hero-section {
@@ -405,6 +424,23 @@
         }
 
         @media (max-width: 768px) {
+            /* === تعديلات الاستجابة للشريط العلوي === */
+            .navbar-controls {
+                flex-direction: column;
+                align-items: stretch;
+                margin-top: 1rem;
+                width: 100%;
+            }
+            .navbar-categories {
+                margin-left: 0;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            .search-bar {
+                max-width: 100%;
+            }
+            /* === نهاية تعديلات الاستجابة === */
+
             .navbar-brand {
                 font-size: 1.2rem;
             }
@@ -503,24 +539,14 @@
                 <!-- تم تفعيل شعار الصورة -->
                 <a class="navbar-brand" href="#"><img src="images/logo.png" alt="خضروات وفاكهة أسواق تبارك"> خضروات وفاكهة أسواق تبارك</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link category-link active" href="#" data-category="all">الكل</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link category-link" href="#" data-category="offers">العروض</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link category-link" href="#" data-category="vegetables">خضروات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link category-link" href="#" data-category="fruits">فواكه</a>
-                        </li>
-                    </ul>
+                <!-- === تم إلغاء القائمة المنسدلة واستبدالها بالعناصر مباشرة === -->
+                <div class="navbar-controls">
+                    <div class="navbar-categories">
+                        <a class="nav-link category-link active" href="#" data-category="all">الكل</a>
+                        <a class="nav-link category-link" href="#" data-category="offers">العروض</a>
+                        <a class="nav-link category-link" href="#" data-category="vegetables">خضروات</a>
+                        <a class="nav-link category-link" href="#" data-category="fruits">فواكه</a>
+                    </div>
                     <input class="form-control search-bar" type="search" id="searchInput" placeholder="ابحث عن منتج..." aria-label="Search">
                 </div>
             </div>
