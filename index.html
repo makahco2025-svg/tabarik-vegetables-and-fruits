@@ -98,39 +98,41 @@
         }
         /* === نهاية التعديلات الجديدة === */
         
+        /* === التعديل الجديد على Hero Section === */
         /* Hero Section */
         .hero-section {
             background: url('images/header-bg.jpg') center/cover no-repeat;
-            color: white;
-            padding: 80px 0; /* تقليل الحشو للأجهزة المحمولة */
-            text-align: center;
+            padding: 40px 0; /* تقليل الحشو */
             margin-bottom: 30px;
-            min-height: 300px; /* تقليل الارتفاع للأجهزة المحمولة */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            min-height: 320px; /* تقليل الارتفاع */
+            /* تم إلغاء خصائص flexbox لأن القسم فارغ */
         }
-        /* إضافة طبقة شبه شفافة لتحسين قابلية قراءة النص */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 1;
+        /* === نهاية التعديل الجديد === */
+
+        /* === التعديل الجديد: زر جروب الواتساب === */
+        .whatsapp-group-link {
+            display: inline-block;
+            background-color: #25D366; /* لون الواتساب الرسمي */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .whatsapp-group-link:hover {
+            background-color: #128C7E; /* لون أفتح عند التمرير */
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
         }
-        .hero-section h1 {
-            font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            font-size: 2.5rem; /* تقليل حجم العنوان */
+        .whatsapp-group-link i {
+            margin-left: 8px;
         }
+        /* === نهاية التعديل الجديد === */
 
         /* Section Headers */
         .section-header {
@@ -351,6 +353,39 @@
             color: var(--secondary-color);
             text-decoration: underline;
         }
+        
+        /* Store Location Section */
+        .store-location {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .store-location h5 {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .store-address {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .store-address:hover {
+            color: var(--secondary-color);
+        }
+        .store-map {
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+        }
+        .store-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
         /* Floating Cart Button */
         .floating-cart-btn {
@@ -458,11 +493,8 @@
                 height: 30px;
             }
             .hero-section {
-                padding: 60px 0;
-                min-height: 250px;
-            }
-            .hero-section h1 {
-                font-size: 1.8rem;
+                padding: 30px 0; /* تقليل الحشو أكثر للأجهزة المحمولة */
+                min-height: 150px; /* تقليل الارتفاع أكثر للأجهزة المحمولة */
             }
             .section-header {
                 margin-bottom: 30px;
@@ -495,11 +527,8 @@
 
         @media (max-width: 576px) {
             .hero-section {
-                padding: 40px 0;
-                min-height: 200px;
-            }
-            .hero-section h1 {
-                font-size: 1.5rem;
+                padding: 20px 0; /* تقليل الحشو أكثر للشاشات الصغيرة جداً */
+                min-height: 120px; /* تقليل الارتفاع أكثر للشاشات الصغيرة جداً */
             }
             .section-header h2 {
                 font-size: 1.2rem;
@@ -565,12 +594,9 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- === تم التعديل هنا: إلغاء النصوص وإبقاء القسم كشعار صورة === -->
         <section class="hero-section">
-            <div class="hero-content">
-                <h1>أجود الفواكه والخضروات الطازجة</h1>
-                <p class="lead">توصيل سريع ومنتجات عالية الجودة</p>
-            </div>
+            <!-- تم حذف النصوص التي كانت فوق الصورة -->
         </section>
 
         <!-- Offers Section -->
@@ -578,6 +604,17 @@
             <div class="section-header">
                 <h2>عروض حصرية</h2>
             </div>
+            
+            <!-- === التعديل الجديد: إضافة زر جروب الواتساب === -->
+            <div class="text-center">
+                <!-- !!! هام: قم بتغيير هذا الرابط إلى رابط جروب الواتساب الخاص بك !!! -->
+                <a href="https://chat.whatsapp.com/YOUR_INVITE_LINK_HERE" target="_blank" class="whatsapp-group-link">
+                    <i class="fab fa-whatsapp"></i>
+                    انضم إلى جروب الواتساب لمشاهدة المزيد من العروض الحصرية
+                </a>
+            </div>
+            <!-- === نهاية التعديل الجديد === -->
+
             <div class="row" id="offersContainer">
                 <!-- Products will be injected here by JS -->
             </div>
@@ -689,6 +726,17 @@
                     واتساب: <a href="https://wa.me/201006887002" target="_blank" class="contact-link">01006887002</a>
                 </p>
             </div>
+            
+            <!-- Store Location Section -->
+            <div class="store-location">
+                <h5><i class="fas fa-map-marker-alt ms-2"></i>موقع المتجر</h5>
+                <p class="store-address" id="storeAddress">
+                    منطقة 390 فدان حدائق أكتوبر السنتر الجديد بجوار مدرسة حمزة بن عبدالمطلب الابتدائية
+                </p>
+                <div class="store-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.6669897556863!2d30.88024131508644!3d29.975920981885357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458554e5b5c9b3b%3A0x4b4c4e4e4e4e4e4e!2sOctober%20Gardens%2C%20Giza%2C%20Egypt!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -721,25 +769,72 @@
             });
             // === نهاية التعديل الجديد ===
             
+            // === التعديل الجديد: ربط العنوان بجوجل ماب ===
+            const storeAddress = document.getElementById('storeAddress');
+            
+            storeAddress.addEventListener('click', () => {
+                // افتح جوجل ماب في نافذة جديدة
+                window.open('https://www.google.com/maps/search/?api=1&query=منطقة+390+فدان+حدائق+أكتوبر+السنتر+الجديد+بجوار+مدرسة+حمزة+بن+عبدالمطلب+الابتدائية', '_blank');
+            });
+            // === نهاية التعديل الجديد ===
+            
             // Product Data (تم تعديل روابط الصور هنا)
             const products = [
                 // Offers
-                { id: 1, name: 'طماطم', price: 15, category: 'vegetables', image: 'images/tomato.jpg', isOffer: true },
-                { id: 2, name: 'موز', price: 25, category: 'fruits', image: 'images/banana.jpg', isOffer: true },
+                { id: 1, name: 'طماطم', price: 5, category: 'vegetables', image: 'images/طماطم.jpg', isOffer: true },
+                { id: 2, name: 'موز', price: 35, category: 'fruits', image: 'images/موز.jpg', isOffer: true },
+                { id: 3, name: 'فلفل الوان', price: 40, category: 'fruits', image: 'images/فلفل الوان.jpg', isOffer: true },
+                { id: 4, name: 'تفاح احمر', price: 65, category: 'fruits', image: 'images/تفاح احمر.jpg', isOffer: true },
+
                 // Vegetables
-                { id: 3, name: 'خيار', price: 10, category: 'vegetables', image: 'images/cucumber.jpg' },
-                { id: 4, name: 'بطاطس', price: 12, category: 'vegetables', image: 'images/potato.jpg' },
-                { id: 5, name: 'بصل', price: 8, category: 'vegetables', image: 'images/onion.jpg' },
-                { id: 6, name: 'جزر', price: 9, category: 'vegetables', image: 'images/carrot.jpg' },
-                { id: 7, name: 'فلفل أخضر', price: 18, category: 'vegetables', image: 'images/pepper.jpg' },
-                { id: 8, name: 'باذنجان', price: 14, category: 'vegetables', image: 'images/eggplant.jpg' },
+                { id: 10, name: 'طماطم', price: 10, category: 'vegetables', image: 'images/طماطم.jpg' },
+                { id: 11, name: 'خيار', price: 12, category: 'vegetables', image: 'images/خيار.jpg' },
+                { id: 12, name: 'بطاطس', price: 8, category: 'vegetables', image: 'images/بطاطس.jpg' },
+                { id: 13, name: 'بصل ابيض', price: 9, category: 'vegetables', image: 'images/بصل ابيض.jpg' },
+                { id: 14, name: 'بصل احمر', price: 18, category: 'vegetables', image: 'images/بصل احمر.jpg' },
+                { id: 15, name: 'ياذنجان رومى', price: 14, category: 'vegetables', image: 'images/باذنجان رومى.jpg' },
+                { id: 16, name: 'ياذنجان ابيض', price: 14, category: 'vegetables', image: 'images/باذنجان ابيض.jpg' },
+                { id: 17, name: 'ياذنجان اسود', price: 14, category: 'vegetables', image: 'images/باذنجان اسود.jpg' },
+                { id: 18, name: 'فلفل رومى', price: 14, category: 'vegetables', image: 'images/فلفل رومى.jpg' },
+                { id: 19, name: 'فلفل حامى', price: 14, category: 'vegetables', image: 'images/فلفل حامى.jpg' },
+                { id: 20, name: 'فلفل اسبانى', price: 14, category: 'vegetables', image: 'images/فلفل اسبانى.jpg' },
+                { id: 21, name: 'فلفل الوان', price: 14, category: 'vegetables', image: 'images/فلفل الوان.jpg' },
+                { id: 22, name: 'كوسة', price: 14, category: 'vegetables', image: 'images/كوسة.jpg' },
+                { id: 23, name: 'جزر', price: 14, category: 'vegetables', image: 'images/جزر.jpg' },
+                { id: 24, name: 'بقدونس', price: 14, category: 'vegetables', image: 'images/بقدونس.jpg' },
+                { id: 25, name: 'كسبرة', price: 14, category: 'vegetables', image: 'images/كسبرة.jpg' },
+                { id: 26, name: 'شبت', price: 14, category: 'vegetables', image: 'images/شبت.jpg' },
+                { id: 27, name: 'سلق قلقاس', price: 14, category: 'vegetables', image: 'images/سلق قلقاس.jpg' },
+                { id: 28, name: 'بصل اخضر', price: 14, category: 'vegetables', image: 'images/بصل اخضر.jpg' },
+                { id: 29, name: 'نعناع', price: 14, category: 'vegetables', image: 'images/نعناع.jpg' },
+                { id: 30, name: 'سبانخ', price: 14, category: 'vegetables', image: 'images/سبانخ.jpg' },
+                { id: 31, name: 'ملوخية', price: 14, category: 'vegetables', image: 'images/ملوخية.jpg' },
+                { id: 32, name: 'كرنب', price: 14, category: 'vegetables', image: 'images/كرنب.jpg' },
+                { id: 33, name: 'كرنب سلطة', price: 14, category: 'vegetables', image: 'images/كرنب سلطة.jpg' },
+                { id: 34, name: 'قرنبيط', price: 14, category: 'vegetables', image: 'images/قرنبيط.jpg' },
+                { id: 35, name: 'ليمون بلدى', price: 14, category: 'vegetables', image: 'images/ليمون.jpg' },
+                { id: 36, name: 'فاصوليا', price: 14, category: 'vegetables', image: 'images/فاصوليا.jpg' },
+                { id: 37, name: 'بسلة', price: 14, category: 'vegetables', image: 'images/بسلة.jpg' },
+                { id: 38, name: 'قلقاس', price: 14, category: 'vegetables', image: 'images/قلقاس.jpg' },
+                { id: 39, name: 'بطاطا', price: 14, category: 'vegetables', image: 'images/بطاطا.jpg' },
+                { id: 40, name: 'ثوم صينى', price: 14, category: 'vegetables', image: 'images/ثوم صينى.jpg' },
+
                 // Fruits
-                { id: 9, name: 'تفاح', price: 30, category: 'fruits', image: 'images/apple.jpg' },
-                { id: 10, name: 'برتقال', price: 22, category: 'fruits', image: 'images/orange.jpg' },
-                { id: 11, name: 'فراولة', price: 45, category: 'fruits', image: 'images/strawberry.jpg' },
-                { id: 12, name: 'عنب', price: 35, category: 'fruits', image: 'images/grapes.jpg' },
-                { id: 13, name: 'بطيخ', price: 20, category: 'fruits', image: 'images/watermelon.jpg' },
-                { id: 14, name: 'مانجو', price: 40, category: 'fruits', image: 'images/mango.jpg' },
+                { id: 60, name: 'جوافة', price: 30, category: 'fruits', image: 'images/جوافة.jpg' },
+                { id: 61, name: 'رمان', price: 22, category: 'fruits', image: 'images/رمان.jpg' },
+                { id: 62, name: 'برتقال', price: 45, category: 'fruits', image: 'images/برتقال.jpg' },
+                { id: 63, name: 'تفاح امريكانى', price: 35, category: 'fruits', image: 'images/تفاح امريكانى.jpg' },
+                { id: 64, name: 'يوسفى', price: 20, category: 'fruits', image: 'images/يوسفى.jpg' },
+                { id: 65, name: 'كاكا', price: 40, category: 'fruits', image: 'images/كاكا.jpg' },
+                { id: 66, name: 'كنتالوب', price: 40, category: 'fruits', image: 'images/كنتالوب.jpg' },
+                { id: 67, name: 'عنب', price: 40, category: 'fruits', image: 'images/عنب.jpg' },
+                { id: 68, name: 'بلح سمانى', price: 40, category: 'fruits', image: 'images/بلح سمانى.jpg' },
+                { id: 69, name: 'تفاح اخضر', price: 40, category: 'fruits', image: 'images/تفاح اخضر.jpg' },
+                { id: 70, name: 'برقوق', price: 40, category: 'fruits', image: 'images/برقوق.jpg' },
+                { id: 71, name: 'مانجو', price: 40, category: 'fruits', image: 'images/مانجو.jpg' },
+                { id: 72, name: 'بطيخ', price: 40, category: 'fruits', image: 'images/بطيخ.jpg' },
+                { id: 73, name: 'فراولة', price: 40, category: 'fruits', image: 'images/فراولة.jpg' },
+
             ];
 
             let cart = [];
